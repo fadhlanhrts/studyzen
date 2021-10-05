@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Jadwal Kuliah</title>
+{% endblock %}
+
+{% block body %}
+<script>
+    function Test(){
+        
+    }
+</script>
+<div class="content">
+    <h1 style="text-align: center"> Jadwal Kuliah </h1>
+    
+    <table>
+        <tr>
+            <th> No </th>
+            <th> Mata Kuliah </th>
+            <th> Bobot SKS </th>
+            <th> Jadwal </th>
+        </tr>
+        
+        <tr>
+            <td> 1 </td>
+            <td> Big Data </td>
+            <td> 3 </td>
+            <td> Senin, 16.00 - 18.00 </td>
+        </tr>
+
+        <tr>
+            <td> 2 </td>
+            <td> Jaringan Telekomunikasi </td>
+            <td> 3 </td>
+            <td> Selasa, 07.00 - 09.00 </td>
+        </tr>
+
+        <tr>
+            <td> 3 </td>
+            <td> Keamanan Jaringan Komputer </td>
+            <td> 3 </td>
+            <td> Selasa, 16.00 - 18.00 </td>
+        </tr>
+        
+    </table>
+    
+    <br>
+
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center"> Anda belum memilih jadwal, pilih jadwal anda  </h4>
+    {% else%}
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.content }}</td>
+            <td>{{ task.date_created.date() }}</td>
+            <td>
+                <a href="/delete/{{task.id}}">Delete</a>
+                <br>
+                <a href="/update/{{task.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <!-- ini belom bisa -->
+    
+    <form action="" method="POST">
+        <label >Jumlah SKS yang diambil:</label>
+        <input type="text" name="sks">
+        <input type="submit" onclick="Test()">
+    </form>
+
+
+    <form id="kuliah" action="/" method="POST">
+        <label for="cars">Pilih mata kuliah:</label>
+        <select id="kuliah" name="kuliah">
+            <option value="Big Data">Big Data</option>
+            <option value="Jaringan Telekomunikasi">Jaringan Telekomunikasi</option>
+            <option value="kemjar">Keamanan Jaringan Komputer</option>
+            
+        </select>
+        <input type="submit" value="Pilih">
+    </form>
+</div>
+{% endblock %}
+
