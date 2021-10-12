@@ -15,45 +15,83 @@
     
     <table>
         <tr>
-            <th> No </th>
+            <th> ID </th>
             <th> Mata Kuliah </th>
             <th> Bobot SKS </th>
-            <th> Jadwal </th>
+            <th> Term </th>
         </tr>
         
+        {% for courses in course %}
         <tr>
-            <td> 1 </td>
-            <td> Big Data </td>
-            <td> 3 </td>
-            <td> Senin, 16.00 - 18.00 </td>
+            <td>{{ courses[0] }}</td>
+            <td>{{ courses[1] }}</td>
+            <td>{{ courses[2] }}</td>
+            <td>{{ courses[3] }}</td>
+            
         </tr>
-
-        <tr>
-            <td> 2 </td>
-            <td> Jaringan Telekomunikasi </td>
-            <td> 3 </td>
-            <td> Selasa, 07.00 - 09.00 </td>
-        </tr>
-
-        <tr>
-            <td> 3 </td>
-            <td> Keamanan Jaringan Komputer </td>
-            <td> 3 </td>
-            <td> Selasa, 16.00 - 18.00 </td>
-        </tr>
+        {% endfor %}
         
     </table>
     
     <br>
 
+    <form id="kuliah" action="/" method="POST">
+        <label >Pilih mata kuliah:</label>
+        
+        <select id="kuliah_option" name="kuliah">
+            {% for courses in course %}
+            <option value="{{ courses[1] }}">{{ courses[1] }}</option>
+            {% endfor %}
+        </select>
+       
+        <input type="submit" value="Pilih">
+    </form>
+
+    <br>
+
+    {% if mycourse|length < 1 %}
+    <h4 style="text-align: center"> Anda belum memilih jadwal, pilih jadwal anda  </h4>
+    {% else%}
+    <br>
+
+    <h1 style="text-align: center"> Kelas yang Diambil </h1>
+
+    <br>
+    <table>
+        <tr>
+            <th> Nama Matkul </th>
+            <th> Bobot SKS </th>
+            <th> Term </th>
+            <th> Kode Matkul </th>
+        </tr>
+        
+        {% for jadwal in mycourse %}
+        <tr>
+            <td>{{ jadwal[1] }}</td>
+            <td>{{ jadwal[2] }}</td>
+            <td>{{ jadwal[3] }}</td>
+            <td>{{ jadwal[4] }}</td>
+            
+        </tr>
+        {% endfor %}
+        
+    </table>
+
+    <form style="text-align: center" action="/submit" method="post">
+        <input style="text-align: center" type="submit" value="Submit" id="submit">
+    </form>
+
+    {% endif %}
+
+<!--
     {% if tasks|length < 1 %}
     <h4 style="text-align: center"> Anda belum memilih jadwal, pilih jadwal anda  </h4>
     {% else%}
     <table>
         <tr>
-            <th>Task</th>
-            <th>Added</th>
-            <th>Actions</th>
+            <th> Mata Kuliah </th>
+            <th> Diambil pada tanggal </th>
+            <th> Options</th>
         </tr>
         {% for task in tasks %}
         <tr>
@@ -69,7 +107,7 @@
     </table>
     {% endif %}
 
-    <!-- ini belom bisa -->
+
     
     <form action="" method="POST">
         <label >Jumlah SKS yang diambil:</label>
@@ -87,7 +125,7 @@
             
         </select>
         <input type="submit" value="Pilih">
-    </form>
+    </form> -->
 </div>
 {% endblock %}
 
