@@ -19,6 +19,9 @@
             <th> Mata Kuliah </th>
             <th> Bobot SKS </th>
             <th> Term </th>
+            <th> Hari </th>
+            <th> Start Time </th>
+            <th> End Time </th>
         </tr>
         
         {% for courses in course %}
@@ -27,7 +30,9 @@
             <td>{{ courses[1] }}</td>
             <td>{{ courses[2] }}</td>
             <td>{{ courses[3] }}</td>
-            
+            <td>{{ courses[6] }}</td>
+            <td>{{ courses[4] }}</td>
+            <td>{{ courses[5] }}</td>
         </tr>
         {% endfor %}
         
@@ -67,10 +72,10 @@
         
         {% for jadwal in mycourse %}
         <tr>
-            <td>{{ jadwal[1] }}</td>
             <td>{{ jadwal[2] }}</td>
             <td>{{ jadwal[3] }}</td>
             <td>{{ jadwal[4] }}</td>
+            <td>{{ jadwal[1] }}</td>
             
         </tr>
         {% endfor %}
