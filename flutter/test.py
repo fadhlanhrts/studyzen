@@ -1,1 +1,0 @@
-print('Nanti ini hapus aja')
