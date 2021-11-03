@@ -36,23 +36,33 @@ def index():
 @app.route('/submit', methods=['POST', 'GET'])
 def submit():
         mycourse = db.execute("SELECT mycourse.id, mycourse.course_id AS course_id, course.name AS name, course.sks AS sks, course.term AS term, time(pertemuan.jam_start) AS jam_start, time(pertemuan.jam_end) AS jam_end, harienum.hari AS hari FROM mycourse INNER JOIN course ON course.id = mycourse.course_id INNER JOIN pertemuan ON pertemuan.course_id = course.id INNER JOIN harienum ON harienum.id = pertemuan.hari ORDER BY term").fetchall()
-        return render_template('submit.html', mycourse=mycourse)
+        
+        sched = []
+        for j in mycourse:
+            sched.append(j[2])
+
+        return render_template('submit.html', mycourse=mycourse, sched=sched)
 
 
 @app.route('/generate', methods=['POST', 'GET'])
 def generate():
         mycourse = db.execute("SELECT mycourse.id, mycourse.course_id AS course_id, course.name AS name, course.sks AS sks, course.term AS term, time(pertemuan.jam_start) AS jam_start, time(pertemuan.jam_end) AS jam_end, harienum.hari AS hari FROM mycourse INNER JOIN course ON course.id = mycourse.course_id INNER JOIN pertemuan ON pertemuan.course_id = course.id INNER JOIN harienum ON harienum.id = pertemuan.hari ORDER BY term").fetchall()
+        
+        sched = []
+        for j in mycourse:
+            sched.append(j[2])
+
         db.execute("SELECT MAX(id) FROM mycourse")
         start = db.fetchone()[0]
         total_sks = 0
         for rows in range(1, start+1):
             db.execute("SELECT mycourse.id AS mycourse_id, course.sks AS sks FROM mycourse INNER JOIN course ON course.id = mycourse.course_id WHERE mycourse_id=(?)", [rows])
-            curr_sks = db.fetchone()[0]
+            curr_sks = db.fetchone()[1]
             total_sks = total_sks + curr_sks
         
         alokasi = total_sks * 120
 
-        return render_template('submit.html', mycourse=mycourse, total_sks=total_sks, alokasi=alokasi)
+        return render_template('submit.html', mycourse=mycourse, total_sks=total_sks, alokasi=alokasi, sched=sched)
     
 
 if __name__ == '__main__':

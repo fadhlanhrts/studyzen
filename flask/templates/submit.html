@@ -45,22 +45,30 @@
             <th> Kamis </th>
             <th> Jumat </th>
         </tr>
+        
         <tr>
             <td> 08.00 - 10.00 </td>
-            <td> -  </td>
+            <td>  - </td>
+            {% if "Jaringan Komputer" in sched%}
+            <td> Jaringan Komputer </td>
+            {% else%}
             <td> - </td>
+             {% endif %}
             <td> - </td>
             <td> - </td>
             <td> - </td>
         </tr>
+        
+       
         <tr>
             <td> 10.00 - 12.00 </td>
             <td> -  </td>
             <td> - </td>
-            <td> - </td>
+            <td>  </td>
             <td> - </td>
             <td> - </td>
         </tr>
+
         <tr>
             <td> 13.00 - 15.00 </td>
             <td> -  </td>
@@ -69,14 +77,35 @@
             <td> - </td>
             <td> - </td>
         </tr>
+
+        
         <tr>
             <td> 16.00 - 18.00 </td>
-            <td> -  </td>
+
+            {% if "Teknologi Big Data" in sched%}
+            <td> Teknologi Big Data  </td>
+            {% else%}
             <td> - </td>
+            {% endif %}
+
             <td> - </td>
+
+            {% if "Keamanan Jaringan" in sched%}
+            <td> Keamanan Jaringan  </td>
+            {% else%}
             <td> - </td>
+            {% endif %}
+            
+            {% if "Sistem Waktu Nyata dan IoT" in sched%}
+            <td> Sistem Waktu Nyata dan IoT </td>
+            {% else%}
+            <td> - </td>
+            {% endif %}
+
             <td> - </td>
         </tr>
+        
+        
         <tr>
             <td> 20.00 - 22.00 </td>
             <td> -  </td>
@@ -85,8 +114,10 @@
             <td> - </td>
             <td> - </td>
         </tr>
-
+        
     </table>
+    
+
 
     <form style="text-align: center" action="/generate" method="post">
         <input style="text-align: center" type="submit" value="Recommend" id="recommend">
