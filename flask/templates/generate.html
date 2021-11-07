@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Study Zen</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center"> Kelas yang Anda pilih </h1>
+
+    <table>
+        <tr>
+            <th> ID </th>
+            <th> Mata Kuliah </th>
+            <th> Bobot SKS </th>
+            <th> Term </th>
+            <th> Hari </th>
+            <th> Start Time </th>
+            <th> End Time </th>
+        </tr>
+        
+        {% for jadwal in mycourse %}
+        <tr>
+            <td>{{ jadwal[0] }}</td>
+            <td>{{ jadwal[2] }}</td>
+            <td>{{ jadwal[3] }}</td>
+            <td>{{ jadwal[4] }}</td>
+            <td>{{ jadwal[7] }}</td>
+            <td>{{ jadwal[5] }}</td>
+            <td>{{ jadwal[6] }}</td>
+            
+        </tr>
+        {% endfor %}
+        
+    </table>
+
+    <br>
+    <h2> Jadwal Anda </h2>
+    <table>
+        <tr>
+            <th> Waktu </th>
+            <th> Senin </th>
+            <th> Selasa </th>
+            <th> Rabu </th>
+            <th> Kamis </th>
+            <th> Jumat </th>
+            <th> Sabtu </th>
+            <th> Minggu </th>
+        </tr>
+        
+        <tr>
+            <td> 08.00 - 10.00 </td>
+            <td>  - </td>
+            {% if "Jaringan Komputer" in sched%}
+            <td> Jaringan Komputer </td>
+            {% else%}
+            <td> - </td>
+             {% endif %}
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+        </tr>
+        
+       
+        <tr>
+            <td> 10.00 - 12.00 </td>
+            <td> -  </td>
+            <td> - </td>
+
+            {% if "Rec Jarkom Rabu Pagi" in rec%}
+            <td> (Rekomendasi) Belajar mandiri - Jaringan Komputer  </td>
+            {% else%}
+            <td> - </td>
+            {% endif %}
+
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+        </tr>
+
+        <tr>
+            <td> 13.00 - 15.00 </td>
+            <td> -  </td> 
+            <td> - </td> 
+            <td> - </td>  
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+        </tr>
+
+        
+        <tr>
+            <td> 16.00 - 18.00 </td>
+
+            {% if "Teknologi Big Data" in sched%}
+            <td> Teknologi Big Data  </td>
+            {% else%}
+            <td> - </td>
+            {% endif %}
+
+            <td> - </td>
+
+            {% if "Keamanan Jaringan" in sched%}
+            <td> Keamanan Jaringan  </td>
+            {% elif "Rec Jarkom Rabu" in rec%}
+            <td> (Rekomendasi) Belajar mandiri - Jaringan Komputer  </td>
+            {% else%}
+            <td> - </td>
+            {% endif %}
+            
+            {% if "Sistem Waktu Nyata dan IoT" in sched%}
+            <td> Sistem Waktu Nyata dan IoT </td>
+            {% else%}
+            <td> - </td>
+            {% endif %}
+
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+        </tr>
+        
+        
+        <tr>
+            <td> 20.00 - 22.00 </td>
+
+            <!-- Rekomendasi belajar big data senin malem -->
+            
+            {% if "Rec Big Data" in rec%}
+            <td> (Rekomendasi) Belajar mandiri - Teknologi Big Data  </td>
+            {% else%}
+            <td> - </td>
+            {% endif %}
+
+            <!-- Rekomendasi belajar jarkom selasa malem -->
+            
+            {% if "Rec Jarkom Selasa" in rec%}
+            <td> (Rekomendasi) Belajar mandiri - Jaringan Komputer  </td>
+            {% else%}
+            <td> - </td>
+            {% endif %}
+
+
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+        </tr>
+        
+    </table>
+    
+
+
+
+    {% if total_sks is defined %}
+        <h4> Anda akan mengambil {{ total_sks }} SKS di Term ini sehingga 
+            anda perlu mengalokasikan {{ alokasi }} menit untuk seluruh mata kuliah 
+        </h4>
+        <br>
+        <h6> *Catatan: 1 sks terdiri atas 50 menit kegiatan tatap muka, 
+            60 menit kegiatan mandiri, dan 60 menit kegiatan terstruktur
+        </h6>
+    {% endif %}
+
+</div>
+{% endblock %}
+
