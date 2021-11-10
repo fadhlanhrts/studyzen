@@ -10,7 +10,8 @@ db = conn.cursor()
 def index():
     if request.method == 'POST':
           
-        dipilih = request.form.get('kuliah')
+        #dipilih = request.form.get('kuliah')
+        
         db.execute("SELECT name FROM course WHERE name=(?)", [dipilih])
         nama_matkul = db.fetchone()[0]
         db.execute("SELECT sks FROM course WHERE name=(?)", [dipilih])
@@ -31,7 +32,7 @@ def index():
         mycourse = db.execute("SELECT mycourse.id, mycourse.course_id AS course_id, course.name AS name, course.sks AS sks, course.term AS term, pertemuan.jam_start AS jam_start, pertemuan.jam_end AS jam_end, harienum.hari AS hari FROM mycourse INNER JOIN course ON course.id = mycourse.course_id INNER JOIN pertemuan ON pertemuan.course_id = course.id INNER JOIN harienum ON harienum.id = pertemuan.hari ORDER BY term").fetchall()
         
         #for crs in course:
-           # all_course = [{'id':crs[0],'name':crs[1],'sks':crs[2],'term':crs[3],'jam_start':crs[4],'jam_end':crs[5],'hari':crs[6]} for crs in course]
+         #  all_course = [{'id':crs[0],'name':crs[1],'sks':crs[2],'term':crs[3],'jam_start':crs[4],'jam_end':crs[5],'hari':crs[6]} for crs in course]
         
         # for mycrs in mycourse: 
            # all_mycrs = [{'id':mycrs[0],'course_id':mycrs[1],'course_name':mycrs[2],'sks':mycrs[3],'jam_start':crs[4],'jam_end':crs[5],'hari':crs[6]} for crs in course]
@@ -64,16 +65,16 @@ def generate():
         
         for i in sched:
             # jarkom - selasa & kamis
-            if i == "Jaringan Komputer":
+            if i == "Jaringan Komputer": # 4 sks 
                 # rekomendasi jarkom selasa malem
                 rec.append("Rec Jarkom Selasa")
                 
                 # kalo ga ngambil kemjar
                 if 'Keamanan Jaringan' not in sched:
                     # rekomendasi jarkom rabu sore
-                    rec.append("Rec Jarkom Rabu")
+                    rec.append("Rec Jarkom Rabu ")
                     
-                else: 
+                else: # ada kemjar 
                     # rekomendasi jarkom rabu pagi 
                     rec.append("Rec Jarkom Rabu Pagi")
 
