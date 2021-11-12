@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'jadwal.dart';
+import 'table.dart';
+import 'get.dart';
+import 'post.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,16 +17,19 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.blueGrey,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-      home: MyHomePage(),
+      home: MyHomePage(title: '',),
       routes: <String, WidgetBuilder> {
-        '/jadwalpage' : (context) => JadwalPage()
+        '/jadwalpage' : (context) => JadwalPage(),
+        '/tablepage' : (context) => TablePage(),
+        '/getpage' : (context) => GetPage(),
+        '/postpage' : (context) => PostPage()
       },
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -64,21 +70,30 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             ListTile(
-              title: const Text('Tugas'),
+              title: const Text('GET'),
               onTap: () {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
-                Navigator.pop(context);
+                Navigator.of(context).pushNamed('/getpage');
               },
             ),
             ListTile(
-              title: const Text('Settings'),
+              title: const Text('POST'),
               onTap: () {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
-                Navigator.pop(context);
+                Navigator.of(context).pushNamed('/postpage');
+              },
+            ),
+            ListTile(
+              title: const Text('TABLE'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.of(context).pushNamed('/tablepage');
               },
             ),
           ],

@@ -42,6 +42,14 @@ file
 2.12
 file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.2/
 file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.2/lib/
+http
+2.14
+file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.4/
+file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.4/lib/
+http_parser
+2.12
+file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.0/
+file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.0/lib/
 intl
 2.5
 file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.16.1/
@@ -151,7 +159,7 @@ integration_test
 file:///C:/Java/flutter/packages/integration_test/
 file:///C:/Java/flutter/packages/integration_test/lib/
 myflutterapp
-2.7
+2.12
 file:///E:/Tugas/DPTK/Coding/studyzen-2/flutter/
 file:///E:/Tugas/DPTK/Coding/studyzen-2/flutter/lib/
 2
