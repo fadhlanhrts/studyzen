@@ -40,7 +40,7 @@ import 'package:syncfusion_flutter_calendar/calendar.dart';
   }
  }
 
-List<Appointment> getAppointments() {
+ List<Appointment> getAppointments() {
   List<Appointment> meetings = <Appointment>[];
   final DateTime today = DateTime.now();
   final DateTime startTime =
@@ -51,7 +51,7 @@ List<Appointment> getAppointments() {
       startTime: startTime,
       endTime: endTime,
       subject: 'Jaringan Telekomunikasi',
-      color: Colors.blue[700],
+      color: Colors.blue,
       recurrenceRule: 'FREQ=WEEKLY;BYDAY=MO,TH,FR;INTERVAL=1;COUNT=100',
       isAllDay: false));
 
@@ -63,4 +63,3 @@ class ScheduleDataSource extends CalendarDataSource {
     appointments = source;
   }
 }
- 

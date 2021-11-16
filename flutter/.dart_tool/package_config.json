@@ -92,6 +92,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "http",
+      "rootUri": "file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "http_parser",
+      "rootUri": "file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "integration_test",
       "rootUri": "file:///C:/Java/flutter/packages/integration_test",
       "packageUri": "lib/",
@@ -171,21 +183,21 @@
     },
     {
       "name": "syncfusion_flutter_calendar",
-      "rootUri": "file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_calendar-18.4.46",
+      "rootUri": "file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_calendar-19.3.48",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.12"
     },
     {
       "name": "syncfusion_flutter_core",
-      "rootUri": "file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_core-18.4.46",
+      "rootUri": "file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_core-19.3.48",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.12"
     },
     {
       "name": "syncfusion_flutter_datepicker",
-      "rootUri": "file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_datepicker-18.4.46-beta",
+      "rootUri": "file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_datepicker-19.3.48",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.12"
     },
     {
       "name": "term_glyph",
@@ -201,9 +213,9 @@
     },
     {
       "name": "timezone",
-      "rootUri": "file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/timezone-0.6.1",
+      "rootUri": "file:///C:/Java/flutter/.pub-cache/hosted/pub.dartlang.org/timezone-0.8.0",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.12"
     },
     {
       "name": "typed_data",
@@ -233,10 +245,10 @@
       "name": "myflutterapp",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.7"
+      "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-11-02T14:47:31.113629Z",
+  "generated": "2021-11-12T09:21:32.503800Z",
   "generator": "pub",
   "generatorVersion": "2.14.3"
 }
