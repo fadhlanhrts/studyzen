@@ -14,23 +14,77 @@ Widget build(BuildContext context) {
 
 //Creating a class user to store the data;
 class User {
-  final String hari;
-  final int id;
-  final String jam_end;
-  final String jam_start;
-  final String name;
-  final int sks;
-  final int term;
+  final String Hari;
+  final int Course_id;
+  final String Jam_end;
+  final String Jam_start;
+  final String Name;
+  final int Sks;
+  final int Term;
 
 User({
-	       required this.hari,
-         required this.id,
-         required this.jam_end,
-         required this.jam_start,
-         required this.name,
-         required this.sks,
-         required this.term
+	       required this.Hari,
+         required this.Course_id,
+         required this.Jam_end,
+         required this.Jam_start,
+         required this.Name,
+         required this.Sks,
+         required this.Term
 });
+}
+
+Future<Album> createAlbum(String name) async {
+  final response = await http.post(
+    Uri.parse('http://c473-118-136-163-170.ngrok.io/pilih'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+      'name': name,
+    }),
+  );
+
+  if (response.statusCode == 200) {
+    // If the server did return a 201 CREATED response,
+    // then parse the JSON.
+    return Album.fromJson(jsonDecode(response.body));
+  } else {
+    // If the server did not return a 201 CREATED response,
+    // then throw an exception.
+    throw Exception('Failed to create album.');
+  }
+}
+
+class Album {
+  final String Hari;
+  final int Course_id;
+  final String Jam_end;
+  final String Jam_start;
+  final String Name;
+  final int Sks;
+  final int Term;
+
+
+  Album({
+         required this.Hari,
+         required this.Course_id,
+         required this.Jam_end,
+         required this.Jam_start,
+         required this.Name,
+         required this.Sks,
+         required this.Term});
+
+  factory Album.fromJson(Map<String, dynamic> json) {
+    return Album(
+      Hari: json['Hari'],
+      Course_id: json['Course_id'],
+      Jam_end: json['Jam_end'],
+      Jam_start: json['Jam_start'],
+      Name: json['Name'],
+      Sks: json['Sks'],
+      Term: json['Term']
+    );
+  }
 }
 
 class HomePage extends StatefulWidget {
@@ -43,7 +97,7 @@ class _HomePageState extends State<HomePage> {
 
 Future<List<User>> getRequest() async {
 	//replace your restFull API here.
-	final response = await http.get(Uri.parse('http://1dca-118-136-163-170.ngrok.io/'));
+	final response = await http.get(Uri.parse('http://c473-118-136-163-170.ngrok.io/'));
 
 	var responseData = json.decode(response.body);
 
@@ -51,13 +105,13 @@ Future<List<User>> getRequest() async {
 	List<User> users = [];
 	for (var singleUser in responseData) {
 	User user = User(
-    hari: singleUser["hari"],
-		id: singleUser["id"],
-		jam_end: singleUser["jam_end"],
-    jam_start: singleUser["jam_start"],
-    name: singleUser["name"],
-    sks: singleUser["sks"],
-    term: singleUser["term"]);
+    Hari: singleUser["Hari"],
+		Course_id: singleUser["Course_id"],
+		Jam_end: singleUser["Jam_end"],
+    Jam_start: singleUser["Jam_start"],
+    Name: singleUser["Name"],
+    Sks: singleUser["Sks"],
+    Term: singleUser["Term"]);
 
 	//Adding user to the list.
 	users.add(user);
@@ -65,16 +119,20 @@ Future<List<User>> getRequest() async {
 	return users;
 }
 
+
 @override
 Widget build(BuildContext context) {
 	return SafeArea(
 	child: Scaffold(
 		appBar: AppBar(
       backgroundColor: Colors.blueGrey,
-		title: Text("Jadwal"),
-		leading: Icon(
-			Icons.calendar_today,
-		),
+		title: Text("GET Jadwal"),
+		actions: [
+            IconButton(
+            icon: const Icon(Icons.calendar_today),
+            onPressed: () {},
+            ),
+    ]
 		),
 		body: Container(
 		padding: EdgeInsets.all(16.0),
@@ -92,14 +150,14 @@ Widget build(BuildContext context) {
 				itemCount: snapshot.data.length,
 				itemBuilder: (ctx, index) => ListTile(
           dense: true,
-					leading: Text(snapshot.data[index].hari),
-					title: Text(snapshot.data[index].jam_start,
+					leading: Text(snapshot.data[index].Hari),
+					title: Text(snapshot.data[index].Jam_start,
                       style: TextStyle(fontSize: 16),
                         ),
-          subtitle: Text(snapshot.data[index].jam_end,
+          subtitle: Text(snapshot.data[index].Jam_end,
                         style: TextStyle(fontSize: 16),
                         ),
-          trailing: Text(snapshot.data[index].name),
+          trailing: Text(snapshot.data[index].Name),
 					contentPadding: EdgeInsets.only(bottom: 20.0),
 				),
 				);
