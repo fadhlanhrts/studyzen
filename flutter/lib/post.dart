@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 Future<Album> createAlbum(String name) async {
   final response = await http.post(
-    Uri.parse('http://1dca-118-136-163-170.ngrok.io/'),
+    Uri.parse('http://c473-118-136-163-170.ngrok.io/pilih'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -14,7 +14,7 @@ Future<Album> createAlbum(String name) async {
     }),
   );
 
-  if (response.statusCode == 201) {
+  if (response.statusCode == 200) {
     // If the server did return a 201 CREATED response,
     // then parse the JSON.
     return Album.fromJson(jsonDecode(response.body));
@@ -26,33 +26,33 @@ Future<Album> createAlbum(String name) async {
 }
 
 class Album {
-  final String hari;
-  final int id;
-  final String jam_end;
-  final String jam_start;
-  final String name;
-  final int sks;
-  final int term;
+  final String Hari;
+  final int Course_id;
+  final String Jam_end;
+  final String Jam_start;
+  final String Name;
+  final int Sks;
+  final int Term;
 
 
   Album({
-         required this.hari,
-         required this.id,
-         required this.jam_end,
-         required this.jam_start,
-         required this.name,
-         required this.sks,
-         required this.term});
+         required this.Hari,
+         required this.Course_id,
+         required this.Jam_end,
+         required this.Jam_start,
+         required this.Name,
+         required this.Sks,
+         required this.Term});
 
   factory Album.fromJson(Map<String, dynamic> json) {
     return Album(
-      hari: json['hari'],
-      id: json['id'],
-      jam_end: json['jam_end'],
-      jam_start: json['jam_start'],
-      name: json['name'],
-      sks: json['sks'],
-      term: json['term']
+      Hari: json['Hari'],
+      Course_id: json['Course_id'],
+      Jam_end: json['Jam_end'],
+      Jam_start: json['Jam_start'],
+      Name: json['Name'],
+      Sks: json['Sks'],
+      Term: json['Term']
     );
   }
 }
@@ -115,7 +115,7 @@ class _PostPageState extends State<PostPage> {
       future: _futureAlbum,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Text(snapshot.data!.hari);
+          return Text(snapshot.data!.Hari);
         } else if (snapshot.hasError) {
           return Text('${snapshot.error}');
         }

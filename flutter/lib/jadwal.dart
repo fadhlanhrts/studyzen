@@ -34,51 +34,32 @@ import 'package:syncfusion_flutter_calendar/calendar.dart';
       firstDayOfWeek: 1,
       //initialDisplayDate: DateTime(2021, 03, 01, 08, 30),
       //initialSelectedDate: DateTime(2021, 03, 01, 08, 30),
-      dataSource: _getCalendarDataSource(),
+      dataSource: ScheduleDataSource(getAppointments()),
       ),
     );
   }
  }
 
-  _AppointmentDataSource _getCalendarDataSource() {
-  List<Appointment> appointments = <Appointment>[];
+ List<Appointment> getAppointments() {
+  List<Appointment> meetings = <Appointment>[];
+  final DateTime today = DateTime.now();
+  final DateTime startTime =
+      DateTime(today.year, today.month, today.day, 9, 0, 0);
+  final DateTime endTime = startTime.add(const Duration(hours: 2));
 
-  appointments.add(Appointment(
-      startTime: DateTime(2021, 12, 16, 10),
-      endTime: DateTime(2022, 12, 16, 12),
+  meetings.add(Appointment(
+      startTime: startTime,
+      endTime: endTime,
       subject: 'Jaringan Telekomunikasi',
       color: Colors.blue,
-      recurrenceRule: 'FREQ=DAILY;INTERVAL=2;COUNT=10'));
+      recurrenceRule: 'FREQ=WEEKLY;BYDAY=MO,TH,FR;INTERVAL=1;COUNT=100',
+      isAllDay: false));
 
-  return _AppointmentDataSource(appointments);
+  return meetings;
 }
 
-class _AppointmentDataSource extends CalendarDataSource {
-  _AppointmentDataSource(List<Appointment> source) {
+class ScheduleDataSource extends CalendarDataSource {
+  ScheduleDataSource(List<Appointment> source) {
     appointments = source;
   }
 }
-// List<Appointment> getAppointments() {
-//   List<Appointment> meetings = <Appointment>[];
-//   final DateTime today = DateTime.now();
-//   final DateTime startTime =
-//       DateTime(today.year, today.month, today.day, 9, 0, 0);
-//   final DateTime endTime = startTime.add(const Duration(hours: 2));
-
-//   meetings.add(Appointment(
-//       startTime: startTime,
-//       endTime: endTime,
-//       subject: 'Jaringan Telekomunikasi',
-//       color: Colors.blue[700],
-//       recurrenceRule: 'FREQ=WEEKLY;BYDAY=MO,TH,FR;INTERVAL=1;COUNT=100',
-//       isAllDay: false));
-
-//   return meetings;
-// }
-
-// class ScheduleDataSource extends CalendarDataSource {
-//   ScheduleDataSource(List<Appointment> source) {
-//     appointments = source;
-//   }
-// }
- 

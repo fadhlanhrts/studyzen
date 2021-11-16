@@ -72,27 +72,18 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: const Text('GET'),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
                 Navigator.of(context).pushNamed('/getpage');
               },
             ),
             ListTile(
               title: const Text('POST'),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
                 Navigator.of(context).pushNamed('/postpage');
               },
             ),
             ListTile(
               title: const Text('TABLE'),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
                 Navigator.of(context).pushNamed('/tablepage');
               },
             ),
