@@ -54,6 +54,7 @@
 
 {% if rec is defined %}
 
+    <!-- Buat drag and drop -->
     <section class="rec">
         <div id="div1" style="border: 3px solid #aaa;"> Jadwal yang perlu diluangkan (drag and drop ke kalender) </div>
         
@@ -63,7 +64,7 @@
         {% endif %}
         
         {% if "Rec Big Data" in rec%}
-        <p style="border: 1px solid #aaa;" draggable="true" ondragstart="drag(event)"> (Rekomendasi) Belajar mandiri - Teknologi Big data  </p>
+        <div style="border: 1px solid #aaa;" draggable="true" ondragstart="drag(event)"> (Rekomendasi) Belajar mandiri - Teknologi Big data  </div>
         {% endif %}
     </section>
     
@@ -199,6 +200,8 @@
     </table>
     
     <br>
+
+    <!-- Tabel -->
     <div id="grid">
         <div id="sc"> <b> Waktu</b> </div>
         <div id="sc"> Senin </div>
