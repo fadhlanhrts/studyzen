@@ -25,9 +25,9 @@
             <td>{{ jadwal[2] }}</td>
             <td>{{ jadwal[3] }}</td>
             <td>{{ jadwal[4] }}</td>
-            <td>{{ jadwal[7] }}</td>
-            <td>{{ jadwal[5] }}</td>
+            <td>{{ jadwal[8] }}</td>
             <td>{{ jadwal[6] }}</td>
+            <td>{{ jadwal[7] }}</td>
             
         </tr>
         {% endfor %}
@@ -50,12 +50,17 @@
         
         <tr>
             <td> 08.00 - 10.00 </td>
+            
             <td>  - </td>
-            {% if "Jaringan Komputer" in sched%}
-            <td> Jaringan Komputer </td>
+
+            {% for i, j, k in t  %} 
+            {% if j == "08:00:00" and k == "SELASA" %}
+            <td> {{i}} </td>
             {% else%}
             <td> - </td>
-             {% endif %}
+            {% endif %}
+            {% endfor %}
+
             <td> - </td>
             <td> - </td>
             <td> - </td>

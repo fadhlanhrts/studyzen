@@ -27,8 +27,8 @@ def index():
             return 'There was an issue adding your task'
 
     else:
-        course = db.execute("SELECT course.id AS course_id, course.name AS name, course.sks AS sks, course.term AS term, time(pertemuan.jam_start) AS jam_start, time(pertemuan.jam_end) AS jam_end, harienum.hari AS hari FROM course INNER JOIN pertemuan ON pertemuan.course_id = course.id INNER JOIN harienum ON harienum.id = pertemuan.hari GROUP BY harienum.hari ORDER BY term").fetchall()
-        mycourse = db.execute("SELECT mycourse.id, mycourse.course_id AS course_id, course.name AS name, course.sks AS sks, course.term AS term, pertemuan.jam_start AS jam_start, pertemuan.jam_end AS jam_end, harienum.hari AS hari FROM mycourse INNER JOIN course ON course.id = mycourse.course_id INNER JOIN pertemuan ON pertemuan.course_id = course.id INNER JOIN harienum ON harienum.id = pertemuan.hari ORDER BY term").fetchall()
+        course = db.execute("SELECT course.id AS course_id, course.name AS name, course.sks AS sks, course.term AS term, course.pertemuan_id AS pertemuan_id, time(pertemuan.jam_start) AS jam_start, time(pertemuan.jam_end) AS jam_end, harienum.hari AS hari FROM course INNER JOIN pertemuan ON course.pertemuan_id = pertemuan.id INNER JOIN harienum ON harienum.id = pertemuan.hari ORDER BY term").fetchall()
+        mycourse = db.execute("SELECT mycourse.id, mycourse.course_id AS course_id, course.name AS name, course.sks AS sks, course.term AS term, course.pertemuan_id AS pertemuan_id, time(pertemuan.jam_start) AS jam_start, time(pertemuan.jam_end) AS jam_end, harienum.hari AS hari FROM mycourse INNER JOIN course ON course.id = mycourse.course_id INNER JOIN pertemuan ON pertemuan.id = course.pertemuan_id INNER JOIN harienum ON harienum.id = pertemuan.hari ORDER BY term").fetchall()
         
         #for crs in course:
            # all_course = [{'id':crs[0],'name':crs[1],'sks':crs[2],'term':crs[3],'jam_start':crs[4],'jam_end':crs[5],'hari':crs[6]} for crs in course]
@@ -43,28 +43,35 @@ def index():
 
 @app.route('/submit', methods=['POST', 'GET'])
 def submit():
-        mycourse = db.execute("SELECT mycourse.id, mycourse.course_id AS course_id, course.name AS name, course.sks AS sks, course.term AS term, time(pertemuan.jam_start) AS jam_start, time(pertemuan.jam_end) AS jam_end, harienum.hari AS hari FROM mycourse INNER JOIN course ON course.id = mycourse.course_id INNER JOIN pertemuan ON pertemuan.course_id = course.id INNER JOIN harienum ON harienum.id = pertemuan.hari ORDER BY term").fetchall()
+        mycourse = db.execute("SELECT mycourse.id, mycourse.course_id AS course_id, course.name AS name, course.sks AS sks, course.term AS term, course.pertemuan_id AS pertemuan_id, time(pertemuan.jam_start) AS jam_start, time(pertemuan.jam_end) AS jam_end, harienum.hari AS hari FROM mycourse INNER JOIN course ON course.id = mycourse.course_id INNER JOIN pertemuan ON pertemuan.id = course.pertemuan_id INNER JOIN harienum ON harienum.id = pertemuan.hari ORDER BY term").fetchall()
         
         return render_template('submit.html', mycourse=mycourse)
 
 
 @app.route('/generate', methods=['POST', 'GET'])
 def generate():
-        mycourse = db.execute("SELECT mycourse.id, mycourse.course_id AS course_id, course.name AS name, course.sks AS sks, course.term AS term, time(pertemuan.jam_start) AS jam_start, time(pertemuan.jam_end) AS jam_end, harienum.hari AS hari FROM mycourse INNER JOIN course ON course.id = mycourse.course_id INNER JOIN pertemuan ON pertemuan.course_id = course.id INNER JOIN harienum ON harienum.id = pertemuan.hari ORDER BY term").fetchall()
+        mycourse = db.execute("SELECT mycourse.id, mycourse.course_id AS course_id, course.name AS name, course.sks AS sks, course.term AS term, course.pertemuan_id AS pertemuan_id, time(pertemuan.jam_start) AS jam_start, time(pertemuan.jam_end) AS jam_end, harienum.hari AS hari FROM mycourse INNER JOIN course ON course.id = mycourse.course_id INNER JOIN pertemuan ON pertemuan.id = course.pertemuan_id INNER JOIN harienum ON harienum.id = pertemuan.hari ORDER BY term").fetchall()
         
+        tes = db.execute("SELECT course.name AS name,time(pertemuan.jam_start) AS jam_start, harienum.hari AS hari FROM mycourse INNER JOIN course ON course.id = mycourse.course_id INNER JOIN pertemuan ON pertemuan.id = course.pertemuan_id INNER JOIN harienum ON harienum.id = pertemuan.hari").fetchall()
+        t = []
+        for k in tes:
+            t.append(k)
+        print(t[0][1])
         sched = [] # array isinya nama matkul yang dipilih
         day = []
+        time = []
         rec = [] # array isinya rekomendasi jadwal 
         for j in mycourse:
             sched.append(j[2]) # array diisi nama matkul
-            day.append(j[7])
+            day.append(j[8])
+            time.append(j[6])
         
         # sched udah keisi 
         # [jarkom, kemjar, big data]
         
         for i in sched:
             # jarkom - selasa & kamis
-            if i == "Jaringan Komputer":
+            if i == "Jaringan Komputer Selasa":
                 # rekomendasi jarkom selasa malem
                 rec.append("Rec Jarkom Selasa")
                 
@@ -101,7 +108,7 @@ def generate():
         
         alokasi = total_sks * 120
 
-        return render_template('generate.html', mycourse=mycourse, total_sks=total_sks, alokasi=alokasi, sched=sched, rec=rec)
+        return render_template('generate.html', mycourse=mycourse, total_sks=total_sks, alokasi=alokasi, sched=sched, rec=rec, tes=tes, t=t)
     
 
 if __name__ == '__main__':
