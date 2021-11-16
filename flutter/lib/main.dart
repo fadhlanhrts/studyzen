@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             ListTile(
-              title: const Text('GET'),
+              title: const Text('GET and POST'),
               onTap: () {
                 Navigator.of(context).pushNamed('/getpage');
               },

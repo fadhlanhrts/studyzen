@@ -94,6 +94,8 @@ _HomePageState createState() => _HomePageState();
 
 class _HomePageState extends State<HomePage> {
 //Applying get request.
+final TextEditingController _controller = TextEditingController();
+  Future<Album>? _futureAlbum;
 
 Future<List<User>> getRequest() async {
 	//replace your restFull API here.
@@ -126,7 +128,7 @@ Widget build(BuildContext context) {
 	child: Scaffold(
 		appBar: AppBar(
       backgroundColor: Colors.blueGrey,
-		title: Text("GET Jadwal"),
+		title: Text("GET and POST"),
 		actions: [
             IconButton(
             icon: const Icon(Icons.calendar_today),
@@ -135,7 +137,11 @@ Widget build(BuildContext context) {
     ]
 		),
 		body: Container(
-		padding: EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Column(
+      children: <Widget>[
+      Container(
+		padding: EdgeInsets.fromLTRB(5,20,5,10),
 		child: FutureBuilder(
 			future: getRequest(),
 			builder: (BuildContext ctx, AsyncSnapshot snapshot) {
@@ -147,6 +153,7 @@ Widget build(BuildContext context) {
 				);
 			} else {
 				return ListView.builder(
+        shrinkWrap: true,
 				itemCount: snapshot.data.length,
 				itemBuilder: (ctx, index) => ListTile(
           dense: true,
@@ -158,14 +165,60 @@ Widget build(BuildContext context) {
                         style: TextStyle(fontSize: 16),
                         ),
           trailing: Text(snapshot.data[index].Name),
-					contentPadding: EdgeInsets.only(bottom: 20.0),
+					contentPadding: EdgeInsets.only(bottom: 10.0),
 				),
 				);
 			}
 			},
 		),
 		),
+    Container(
+      padding: EdgeInsets.all(10),
+      child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        TextField(
+          controller: _controller,
+          decoration: const InputDecoration(
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderSide: BorderSide(color: Colors.blueGrey)
+            ),
+            filled: true,
+            contentPadding: EdgeInsets.all(5),
+            hintText: 'Enter POST'),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              _futureAlbum = createAlbum(_controller.text);
+            });
+          },
+          child: const Text('POST DATA'),
+        ),
+      ],
+    )
+    )
+      ],
+    ) ,
+        ),
+    )
+    
 	),
 	);
 }
+FutureBuilder<Album> buildFutureBuilder() {
+    return FutureBuilder<Album>(
+      future: _futureAlbum,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return Text(snapshot.data!.Hari);
+        } else if (snapshot.hasError) {
+          return Text('${snapshot.error}');
+        }
+
+        return const CircularProgressIndicator();
+      },
+    );
+  }
 }
