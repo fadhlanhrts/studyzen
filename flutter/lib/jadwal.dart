@@ -47,7 +47,7 @@ import 'package:syncfusion_flutter_calendar/calendar.dart';
       startTime: DateTime(2021, 12, 16, 10),
       endTime: DateTime(2022, 12, 16, 12),
       subject: 'Jaringan Telekomunikasi',
-      color: Colors.blue[700],
+      color: Colors.blue,
       recurrenceRule: 'FREQ=DAILY;INTERVAL=2;COUNT=10'));
 
   return _AppointmentDataSource(appointments);
