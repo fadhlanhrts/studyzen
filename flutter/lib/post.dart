@@ -34,32 +34,28 @@ class Album {
   final int Sks;
   final int Term;
 
-
-  Album({
-         required this.Hari,
-         required this.Course_id,
-         required this.Jam_end,
-         required this.Jam_start,
-         required this.Name,
-         required this.Sks,
-         required this.Term});
+  Album(
+      {required this.Hari,
+      required this.Course_id,
+      required this.Jam_end,
+      required this.Jam_start,
+      required this.Name,
+      required this.Sks,
+      required this.Term});
 
   factory Album.fromJson(Map<String, dynamic> json) {
     return Album(
-      Hari: json['Hari'],
-      Course_id: json['Course_id'],
-      Jam_end: json['Jam_end'],
-      Jam_start: json['Jam_start'],
-      Name: json['Name'],
-      Sks: json['Sks'],
-      Term: json['Term']
-    );
+        Hari: json['Hari'],
+        Course_id: json['Course_id'],
+        Jam_end: json['Jam_end'],
+        Jam_start: json['Jam_start'],
+        Name: json['Name'],
+        Sks: json['Sks'],
+        Term: json['Term']);
   }
 }
 
-
 class PostPage extends StatefulWidget {
-
   @override
   _PostPageState createState() {
     return _PostPageState();

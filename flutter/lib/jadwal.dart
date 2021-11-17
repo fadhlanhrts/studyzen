@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
- class JadwalPage extends StatelessWidget {
-   @override
-   Widget build(BuildContext context) {
+class JadwalPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Jadwal'),
@@ -11,36 +11,36 @@ import 'package:syncfusion_flutter_calendar/calendar.dart';
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {},
+              icon: const Icon(Icons.search),
+              onPressed: () {},
             ),
           ),
           IconButton(
             icon: const Icon(Icons.more_vert),
             onPressed: () {},
-            ),
+          ),
         ],
       ),
-        body: SfCalendar(
+      body: SfCalendar(
         view: CalendarView.month,
-      showNavigationArrow: true,
-      selectionDecoration: BoxDecoration(
-        color: Colors.transparent,
-            border: Border.all(color: Colors.blueGrey, width: 2),
-            borderRadius: const BorderRadius.all(Radius.circular(4)),
-            shape: BoxShape.rectangle,
-      ),
-      monthViewSettings: MonthViewSettings(showAgenda: true),
-      firstDayOfWeek: 1,
-      //initialDisplayDate: DateTime(2021, 03, 01, 08, 30),
-      //initialSelectedDate: DateTime(2021, 03, 01, 08, 30),
-      dataSource: ScheduleDataSource(getAppointments()),
+        showNavigationArrow: true,
+        selectionDecoration: BoxDecoration(
+          color: Colors.transparent,
+          border: Border.all(color: Colors.blueGrey, width: 2),
+          borderRadius: const BorderRadius.all(Radius.circular(4)),
+          shape: BoxShape.rectangle,
+        ),
+        monthViewSettings: MonthViewSettings(showAgenda: true),
+        firstDayOfWeek: 1,
+        //initialDisplayDate: DateTime(2021, 03, 01, 08, 30),
+        //initialSelectedDate: DateTime(2021, 03, 01, 08, 30),
+        dataSource: ScheduleDataSource(getAppointments()),
       ),
     );
   }
- }
+}
 
- List<Appointment> getAppointments() {
+List<Appointment> getAppointments() {
   List<Appointment> meetings = <Appointment>[];
   final DateTime today = DateTime.now();
   final DateTime startTime =
