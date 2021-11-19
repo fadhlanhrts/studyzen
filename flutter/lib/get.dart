@@ -2,14 +2,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class GetPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomePage(),
-    );
-  }
-}
+// class GetPage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: HomePage(),
+//     );
+//   }
+// }
 
 //Creating a class user to store the data;
 class User {
@@ -33,7 +33,7 @@ class User {
 
 Future<Album> createAlbum(String name) async {
   final response = await http.post(
-    Uri.parse('http://c473-118-136-163-170.ngrok.io/pilih'),
+    Uri.parse('http://46b8-118-136-163-170.ngrok.io/pilih'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -83,12 +83,12 @@ class Album {
   }
 }
 
-class HomePage extends StatefulWidget {
+class GetPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _GetPageState createState() => _GetPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _GetPageState extends State<GetPage> {
 //Applying get request.
   final TextEditingController _controller = TextEditingController();
   Future<Album>? _futureAlbum;
@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
     final response =
-        await http.get(Uri.parse('http://c473-118-136-163-170.ngrok.io/'));
+        await http.get(Uri.parse('http://46b8-118-136-163-170.ngrok.io/'));
 
     var responseData = json.decode(response.body);
 

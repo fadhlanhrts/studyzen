@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'jadwal.dart';
+import 'mycourse.dart';
 import 'table.dart';
 import 'get.dart';
 import 'post.dart';
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
         '/jadwalpage': (context) => JadwalPage(),
         '/tablepage': (context) => TablePage(),
         '/getpage': (context) => GetPage(),
-        '/postpage': (context) => PostPage()
+        '/postpage': (context) => PostPage(),
+        '/mycoursepage': (context) => MyCoursePage()
       },
     );
   }
@@ -86,9 +88,9 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             ListTile(
-              title: const Text('TABLE'),
+              title: const Text('My Course'),
               onTap: () {
-                Navigator.of(context).pushNamed('/tablepage');
+                Navigator.of(context).pushNamed('/mycoursepage');
               },
             ),
           ],
