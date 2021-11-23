@@ -83,12 +83,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.of(context).pushNamed('/getpage');
               },
             ),
-            ListTile(
-              title: const Text('POST'),
-              onTap: () {
-                Navigator.of(context).pushNamed('/postpage');
-              },
-            ),
+            // ListTile(
+            //   title: const Text('POST'),
+            //   onTap: () {
+            //     Navigator.of(context).pushNamed('/postpage');
+            //   },
+            // ),
             ListTile(
               title: const Text('My Course'),
               onTap: () {
@@ -99,6 +99,12 @@ class _MyHomePageState extends State<MyHomePage> {
               title: const Text('Recommendation'),
               onTap: () {
                 Navigator.of(context).pushNamed('/recommendationpage');
+              },
+            ),
+            ListTile(
+              title: const Text('Table'),
+              onTap: () {
+                Navigator.of(context).pushNamed('/tablepage');
               },
             ),
           ],
