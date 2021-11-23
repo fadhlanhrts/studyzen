@@ -33,7 +33,7 @@ class User {
 
 Future<Album> createAlbum(String name) async {
   final response = await http.post(
-    Uri.parse('http://b850-118-136-163-170.ngrok.io/mycourse'),
+    Uri.parse('http://73af-118-136-163-170.ngrok.io/pilih'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -42,15 +42,15 @@ Future<Album> createAlbum(String name) async {
     }),
   );
 
-  if (response.statusCode == 200) {
-    // If the server did return a 201 CREATED response,
-    // then parse the JSON.
-    return Album.fromJson(jsonDecode(response.body));
-  } else {
-    // If the server did not return a 201 CREATED response,
-    // then throw an exception.
-    throw Exception('Failed to create album.');
-  }
+  // if (response.statusCode == 200) {
+  // If the server did return a 201 CREATED response,
+  // then parse the JSON.
+  return Album.fromJson(jsonDecode(response.body));
+  // } else {
+  //   // If the server did not return a 201 CREATED response,
+  //   // then throw an exception.
+  //   throw Exception('Failed to create album.');
+  // }
 }
 
 class Album {
@@ -96,7 +96,7 @@ class _GetPageState extends State<GetPage> {
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
     final response =
-        await http.get(Uri.parse('http://b850-118-136-163-170.ngrok.io/'));
+        await http.get(Uri.parse('http://73af-118-136-163-170.ngrok.io/'));
 
     var responseData = json.decode(response.body);
 
