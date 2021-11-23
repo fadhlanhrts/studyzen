@@ -3,38 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class User {
-  final String Hari;
-  final int Mycourse_id;
-  final int Course_id;
-  final String Jam_end;
-  final String Jam_start;
-  final String Name;
-  final int Sks;
-  final int Term;
+  final String Rec_tugas;
+  final String Rec_belajar;
 
-  User(
-      {required this.Hari,
-      required this.Mycourse_id,
-      required this.Course_id,
-      required this.Jam_end,
-      required this.Jam_start,
-      required this.Name,
-      required this.Sks,
-      required this.Term});
+  User({required this.Rec_tugas, required this.Rec_belajar});
 }
 
-class MyCoursePage extends StatefulWidget {
+class RecommendationPage extends StatefulWidget {
   @override
-  _MyCoursePageState createState() => _MyCoursePageState();
+  _RecommendationPageState createState() => _RecommendationPageState();
 }
 
-class _MyCoursePageState extends State<MyCoursePage> {
+class _RecommendationPageState extends State<RecommendationPage> {
 //Applying get request.
 
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
     final response = await http
-        .get(Uri.parse('http://73af-118-136-163-170.ngrok.io/mycourse'));
+        .get(Uri.parse('http://73af-118-136-163-170.ngrok.io/getrec'));
 
     var responseData = json.decode(response.body);
 
@@ -42,14 +28,8 @@ class _MyCoursePageState extends State<MyCoursePage> {
     List<User> users = [];
     for (var singleUser in responseData) {
       User user = User(
-          Hari: singleUser["Hari"],
-          Mycourse_id: singleUser["Mycourse_id"],
-          Course_id: singleUser["Course_id"],
-          Jam_end: singleUser["Jam_end"],
-          Jam_start: singleUser["Jam_start"],
-          Name: singleUser["Name"],
-          Sks: singleUser["Sks"],
-          Term: singleUser["Term"]);
+          Rec_tugas: singleUser["Rec_tugas"],
+          Rec_belajar: singleUser["Rec_belajar"]);
 
       //Adding user to the list.
       users.add(user);
@@ -63,7 +43,7 @@ class _MyCoursePageState extends State<MyCoursePage> {
         child: Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.blueGrey,
-          title: Text("MyCourse"),
+          title: Text("Recommendation"),
           actions: [
             IconButton(
               icon: const Icon(Icons.calendar_today),
@@ -89,16 +69,16 @@ class _MyCoursePageState extends State<MyCoursePage> {
                     itemCount: snapshot.data.length,
                     itemBuilder: (ctx, index) => ListTile(
                       dense: true,
-                      leading: Text(snapshot.data[index].Hari),
+                      // leading: Text(snapshot.data[index].Rec_tugas),
                       title: Text(
-                        snapshot.data[index].Jam_start,
+                        snapshot.data[index].Rec_tugas,
                         style: TextStyle(fontSize: 16),
                       ),
                       subtitle: Text(
-                        snapshot.data[index].Jam_end,
+                        snapshot.data[index].Rec_belajar,
                         style: TextStyle(fontSize: 16),
                       ),
-                      trailing: Text(snapshot.data[index].Name),
+                      // trailing: Text(snapshot.data[index].Rec_belajar),
                       contentPadding: EdgeInsets.only(bottom: 10.0),
                     ),
                   );

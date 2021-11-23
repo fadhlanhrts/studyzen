@@ -4,6 +4,7 @@ import 'mycourse.dart';
 import 'table.dart';
 import 'get.dart';
 import 'post.dart';
+import 'recommendation.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
         '/tablepage': (context) => TablePage(),
         '/getpage': (context) => GetPage(),
         '/postpage': (context) => PostPage(),
-        '/mycoursepage': (context) => MyCoursePage()
+        '/mycoursepage': (context) => MyCoursePage(),
+        '/recommendationpage': (context) => RecommendationPage()
       },
     );
   }
@@ -91,6 +93,12 @@ class _MyHomePageState extends State<MyHomePage> {
               title: const Text('My Course'),
               onTap: () {
                 Navigator.of(context).pushNamed('/mycoursepage');
+              },
+            ),
+            ListTile(
+              title: const Text('Recommendation'),
+              onTap: () {
+                Navigator.of(context).pushNamed('/recommendationpage');
               },
             ),
           ],
