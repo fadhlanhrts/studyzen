@@ -13,7 +13,7 @@ import 'package:http/http.dart' as http;
 
 class User {
   final String Hari;
-  final String Mycourse_id;
+  final int Mycourse_id;
   final int Course_id;
   final String Jam_end;
   final String Jam_start;
@@ -43,7 +43,7 @@ class _MyCoursePageState extends State<MyCoursePage> {
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
     final response = await http
-        .get(Uri.parse('http://46b8-118-136-163-170.ngrok.io/mycourse'));
+        .get(Uri.parse('http://b850-118-136-163-170.ngrok.io//mycourse'));
 
     var responseData = json.decode(response.body);
 
