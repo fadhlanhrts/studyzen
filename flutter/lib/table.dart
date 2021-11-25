@@ -3,16 +3,14 @@ import 'package:flutter/material.dart';
 class TablePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text('Jadwal'),
-             actions: [
-                IconButton(
-                  icon: const Icon(Icons.calendar_today),
-                  onPressed: () {},
-                ),
-         ]),
+    return SafeArea(
+      child: Scaffold(
+          appBar: AppBar(title: Text('Jadwal'), actions: [
+            IconButton(
+              icon: const Icon(Icons.calendar_today),
+              onPressed: () {},
+            ),
+          ]),
           body: ListView(scrollDirection: Axis.horizontal, children: <Widget>[
             DataTable(
               columns: [
