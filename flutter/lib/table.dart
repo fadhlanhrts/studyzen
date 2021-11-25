@@ -7,7 +7,12 @@ class TablePage extends StatelessWidget {
       home: Scaffold(
           appBar: AppBar(
             title: Text('Jadwal'),
-          ),
+             actions: [
+                IconButton(
+                  icon: const Icon(Icons.calendar_today),
+                  onPressed: () {},
+                ),
+         ]),
           body: ListView(scrollDirection: Axis.horizontal, children: <Widget>[
             DataTable(
               columns: [
@@ -46,19 +51,9 @@ class TablePage extends StatelessWidget {
               ],
               rows: [
                 DataRow(cells: [
-                  DataCell(Text('1')),
-                  DataCell(Text('Stephen')),
-                  DataCell(Text('Actor')),
+                  DataCell(Text('08.00 - 10.00')),
                   DataCell(Text('')),
                   DataCell(Text('')),
-                  DataCell(Text('')),
-                  DataCell(Text('')),
-                  DataCell(Text('')),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text('5')),
-                  DataCell(Text('John')),
-                  DataCell(Text('Student')),
                   DataCell(Text('')),
                   DataCell(Text('')),
                   DataCell(Text('')),
@@ -66,19 +61,9 @@ class TablePage extends StatelessWidget {
                   DataCell(Text('')),
                 ]),
                 DataRow(cells: [
-                  DataCell(Text('10')),
-                  DataCell(Text('Harry')),
-                  DataCell(Text('Leader')),
+                  DataCell(Text('10.00 - 12.00')),
                   DataCell(Text('')),
                   DataCell(Text('')),
-                  DataCell(Text('')),
-                  DataCell(Text('')),
-                  DataCell(Text('')),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text('15')),
-                  DataCell(Text('Peter')),
-                  DataCell(Text('Scientist')),
                   DataCell(Text('')),
                   DataCell(Text('')),
                   DataCell(Text('')),
@@ -86,9 +71,29 @@ class TablePage extends StatelessWidget {
                   DataCell(Text('')),
                 ]),
                 DataRow(cells: [
-                  DataCell(Text('15')),
-                  DataCell(Text('Peter')),
-                  DataCell(Text('Scientist')),
+                  DataCell(Text('13.00 - 15.00')),
+                  DataCell(Text('')),
+                  DataCell(Text('')),
+                  DataCell(Text('')),
+                  DataCell(Text('')),
+                  DataCell(Text('')),
+                  DataCell(Text('')),
+                  DataCell(Text('')),
+                ]),
+                DataRow(cells: [
+                  DataCell(Text('15.00 - 17.00')),
+                  DataCell(Text('')),
+                  DataCell(Text('')),
+                  DataCell(Text('')),
+                  DataCell(Text('')),
+                  DataCell(Text('')),
+                  DataCell(Text('')),
+                  DataCell(Text('')),
+                ]),
+                DataRow(cells: [
+                  DataCell(Text('19.00 - 21.00')),
+                  DataCell(Text('')),
+                  DataCell(Text('')),
                   DataCell(Text('')),
                   DataCell(Text('')),
                   DataCell(Text('')),

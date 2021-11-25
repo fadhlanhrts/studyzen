@@ -96,7 +96,7 @@ class _GetPageState extends State<GetPage> {
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
     final response =
-        await http.get(Uri.parse('http://73af-118-136-163-170.ngrok.io/'));
+        await http.get(Uri.parse('http://ff90-118-136-163-170.ngrok.io/'));
 
     var responseData = json.decode(response.body);
 
