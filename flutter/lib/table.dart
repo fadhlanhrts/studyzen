@@ -30,6 +30,7 @@ class TablePage extends StatelessWidget {
         .get(Uri.parse('http://64a9-118-136-163-170.ngrok.io/mycourse'));
 
     var responseData = json.decode(response.body);
+    // final l = responseData.length;
 
     //Creating a list to store input data;
     List<User> users = [];
@@ -49,6 +50,10 @@ class TablePage extends StatelessWidget {
     }
     return users;
   }
+
+  var Jarkom = '';
+  var Kemjar = '';
+  var Despro = '';
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +75,17 @@ class TablePage extends StatelessWidget {
                   ),
                 );
               } else {
+                for (var i = 0; i < 4; i++) {
+                  if (snapshot.data[i].Name == "Jaringan Komputer") {
+                    Jarkom = "Jaringan Komputer";
+                  }
+                  if (snapshot.data[i].Name == "Keamanan Jaringan") {
+                    Kemjar = "Keamanan Jaringan";
+                  }
+                  if (snapshot.data[i].Name == "Despro") {
+                    Despro = "Despro";
+                  }
+                }
                 return ListView(
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
@@ -77,19 +93,16 @@ class TablePage extends StatelessWidget {
                         columns: [
                           DataColumn(
                               label: Text('Jam',
-                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold))),
                           DataColumn(
                               label: Text('Senin',
-                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold))),
                           DataColumn(
                               label: Text('Selasa',
-                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold))),
@@ -122,7 +135,7 @@ class TablePage extends StatelessWidget {
                         rows: [
                           DataRow(cells: [
                             DataCell(Text('08.00 - 10.00')),
-                            DataCell(Text(snapshot.data[0].Name)),
+                            DataCell(Text(Jarkom)),
                             DataCell(Text('')),
                             DataCell(Text('')),
                             DataCell(Text('')),
@@ -132,7 +145,7 @@ class TablePage extends StatelessWidget {
                           ]),
                           DataRow(cells: [
                             DataCell(Text('10.00 - 12.00')),
-                            DataCell(Text(snapshot.data[2].Name)),
+                            DataCell(Text(Kemjar)),
                             DataCell(Text('')),
                             DataCell(Text('')),
                             DataCell(Text('')),
