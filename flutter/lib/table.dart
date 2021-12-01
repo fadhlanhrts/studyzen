@@ -75,7 +75,10 @@ class TablePage extends StatelessWidget {
                   ),
                 );
               } else {
-                for (var i = 0; i < 4; i++) {
+                final response = await http.get(Uri.parse('http://64a9-118-136-163-170.ngrok.io/mycourse'));
+                var responseData = json.decode(response.body);
+                final l = responseData.length;
+                for (var i = 0; i < l; i++) {
                   if (snapshot.data[i].Name == "Jaringan Komputer") {
                     Jarkom = "Jaringan Komputer";
                   }
