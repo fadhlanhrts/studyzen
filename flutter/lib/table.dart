@@ -23,16 +23,14 @@ class User {
       required this.Term});
 }
 
-var l;
-
 class TablePage extends StatelessWidget {
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
     final response = await http
-        .get(Uri.parse('http://306a-118-136-163-170.ngrok.io/mycourse'));
+        .get(Uri.parse('http://64a9-118-136-163-170.ngrok.io/mycourse'));
 
     var responseData = json.decode(response.body);
-    l = responseData.length;
+    // final l = responseData.length;
 
     //Creating a list to store input data;
     List<User> users = [];
@@ -56,7 +54,21 @@ class TablePage extends StatelessWidget {
   var Jarkom = '';
   var Kemjar = '';
   var Despro = '';
-
+  var Iot    = '';
+  var Bigdata= '';
+  
+  var Rec_Jarkom = '';
+  var Rec_Kemjar = '';
+  var Rec_Despro = '';
+  var Rec_Iot    = '';
+  var Rec_Bigdata= '';
+  
+  var T_Jarkom = '';
+  var T_Kemjar = '';
+  var T_Despro = '';
+  var T_Iot    = '';
+  var T_Bigdata= '';
+  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -77,15 +89,54 @@ class TablePage extends StatelessWidget {
                   ),
                 );
               } else {
-                for (var i = 0; i < l; i++) {
+                for (var i = 0; i < 14; i++) {
                   if (snapshot.data[i].Name == "Jaringan Komputer") {
                     Jarkom = "Jaringan Komputer";
                   }
                   if (snapshot.data[i].Name == "Keamanan Jaringan") {
                     Kemjar = "Keamanan Jaringan";
                   }
-                  if (snapshot.data[i].Name == "Despro") {
-                    Despro = "Despro";
+                  if (snapshot.data[i].Name == "Desain Proyek Komputer") {
+                    Despro = "Desain Proyek Komputer";
+                  }
+                  if (snapshot.data[i].Name == "Iot") {
+                    Iot = "Sistem Waktu Nyata dan IoT";
+                  }
+                  if (snapshot.data[i].Name == "Bigdata") {
+                    Bigdata = "Big Data";
+                  }
+                  
+                  if (snapshot.data[i].Name == "(Rekomendasi) Jaringan Komputer") {
+                    Rec_Jarkom = "(Rekomendasi) Jaringan Komputer";
+                  }
+                  if (snapshot.data[i].Name == "(Rekomendasi) Keamanan Jaringan") {
+                    Rec_Kemjar = "(Rekomendasi) Keamanan Jaringan";
+                  }
+                  if (snapshot.data[i].Name == "(Rekomendasi) Desain Proyek Komputer") {
+                    Rec_Despro = "(Rekomendasi) Desain Proyek Komputer";
+                  }
+                  if (snapshot.data[i].Name == "(Rekomendasi) Iot") {
+                    Rec_Iot = "(Rekomendasi) Sistem Waktu Nyata dan IoT";
+                  }
+                  if (snapshot.data[i].Name == "(Rekomendasi) Bigdata") {
+                    Rec_Bigdata = "(Rekomendasi) Big Data";
+                  }
+
+                  if (snapshot.data[i].Name == "(Tugas) Jaringan Komputer") {
+                    T_Jarkom = "(Tugas) Jaringan Komputer";
+                  }
+                  if (snapshot.data[i].Name == "(Tugas) Keamanan Jaringan") {
+                    T_Kemjar = "(Tugas) Keamanan Jaringan";
+                  }
+                  if (snapshot.data[i].Name == "(Tugas) Desain Proyek Komputer") {
+                    T_Despro = "(Tugas) Desain Proyek Komputer";
+                  }
+                  if (snapshot.data[i].Name == "(Tugas) Iot") {
+                    T_Iot = "(Tugas) Sistem Waktu Nyata dan IoT";
+                  }
+                  if (snapshot.data[i].Name == "(Tugas) Bigdata") {
+                    T_Bigdata = "(Tugas) Big Data";
+                  }
                   }
                 }
                 return ListView(
@@ -137,8 +188,8 @@ class TablePage extends StatelessWidget {
                         rows: [
                           DataRow(cells: [
                             DataCell(Text('08.00 - 10.00')),
-                            DataCell(Text(Jarkom)),
                             DataCell(Text('')),
+                            DataCell(Text(Jarkom)),
                             DataCell(Text('')),
                             DataCell(Text('')),
                             DataCell(Text('')),
@@ -147,7 +198,7 @@ class TablePage extends StatelessWidget {
                           ]),
                           DataRow(cells: [
                             DataCell(Text('10.00 - 12.00')),
-                            DataCell(Text(Kemjar)),
+                            DataCell(Text('')),
                             DataCell(Text('')),
                             DataCell(Text('')),
                             DataCell(Text('')),
@@ -166,22 +217,22 @@ class TablePage extends StatelessWidget {
                             DataCell(Text('')),
                           ]),
                           DataRow(cells: [
-                            DataCell(Text('15.00 - 17.00')),
+                            DataCell(Text('16.00 - 18.00')),
+                            DataCell(Text(Bigdata)),
                             DataCell(Text('')),
-                            DataCell(Text('')),
-                            DataCell(Text('')),
-                            DataCell(Text('')),
-                            DataCell(Text('')),
+                            DataCell(Text(Kemjar)),
+                            DataCell(Text(Iot)),
+                            DataCell(Text(Despro)),
                             DataCell(Text('')),
                             DataCell(Text('')),
                           ]),
                           DataRow(cells: [
                             DataCell(Text('19.00 - 21.00')),
-                            DataCell(Text('')),
-                            DataCell(Text('')),
-                            DataCell(Text('')),
-                            DataCell(Text('')),
-                            DataCell(Text('')),
+                            DataCell(Text(T_Bigdata)),
+                            DataCell(Text(T_Jarkom)),
+                            DataCell(Text(T_Kemjar)),
+                            DataCell(Text(T_Iot)),
+                            DataCell(Text(T_Despro)),
                             DataCell(Text('')),
                             DataCell(Text('')),
                           ]),
