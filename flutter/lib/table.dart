@@ -123,6 +123,8 @@ class TablePage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
                       DataTable(
+                        dataRowHeight: 60,
+                        showBottomBorder: true,
                         columns: [
                           DataColumn(
                               label: Text('Jam',
