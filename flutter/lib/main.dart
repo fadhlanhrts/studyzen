@@ -129,58 +129,54 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           // crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Column(children: <Widget>[
-              Container(
-                child: IconButton(
-                  icon: Icon(Icons.calendar_today),
-                  iconSize: 50,
-                  tooltip: 'Pilih Jadwal',
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/getpage');
-                  },
+            Container(
+              child: IconButton(
+                icon: Image.asset(
+                  "images/pilihjadwal.png",
                 ),
+                iconSize: 130,
+                tooltip: 'Pilih Jadwal',
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/getpage');
+                },
               ),
-              Text('Pilih Jadwal')
-            ]),
-            Column(children: <Widget>[
-              Container(
-                child: IconButton(
-                  icon: Icon(Icons.menu_book),
-                  iconSize: 50,
-                  tooltip: 'My Course',
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/mycoursepage');
-                  },
+            ),
+            Container(
+              child: IconButton(
+                icon: Image.asset(
+                  "images/mycourse.png",
                 ),
+                iconSize: 130,
+                tooltip: 'My Course',
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/mycoursepage');
+                },
               ),
-              Text('My Course')
-            ]),
-            Column(children: <Widget>[
-              Container(
-                child: IconButton(
-                  icon: Icon(Icons.recommend),
-                  iconSize: 50,
-                  tooltip: 'Recommendation',
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/recommendationpage');
-                  },
+            ),
+            Container(
+              child: IconButton(
+                icon: Image.asset(
+                  "images/recommendation.png",
                 ),
+                iconSize: 130,
+                tooltip: 'Recommendation',
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/recommendationpage');
+                },
               ),
-              Text('Recommendation')
-            ]),
-            Column(children: <Widget>[
-              Container(
-                child: IconButton(
-                  icon: Icon(Icons.table_chart),
-                  iconSize: 50,
-                  tooltip: 'Table',
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/tablepage');
-                  },
+            ),
+            Container(
+              child: IconButton(
+                icon: Image.asset(
+                  "images/lihatjadwal.png",
                 ),
+                iconSize: 130,
+                tooltip: 'Table',
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/tablepage');
+                },
               ),
-              Text('Lihat Jadwal')
-            ]),
+            ),
           ],
         ),
       ),

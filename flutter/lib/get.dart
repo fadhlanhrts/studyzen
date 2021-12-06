@@ -136,7 +136,7 @@ class _GetPageState extends State<GetPage> {
               child: Column(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.fromLTRB(5, 20, 5, 10),
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
                     child: FutureBuilder(
                       future: getRequest(),
                       builder: (BuildContext ctx, AsyncSnapshot snapshot) {
@@ -148,6 +148,7 @@ class _GetPageState extends State<GetPage> {
                           );
                         } else {
                           return ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: snapshot.data.length,
                             itemBuilder: (ctx, index) => ListTile(
@@ -156,8 +157,7 @@ class _GetPageState extends State<GetPage> {
                                   _futureAlbum = createAlbum(_controller.text);
                                 });
                               },
-                              enabled: true,
-                              enableFeedback: true,
+                              enableFeedback: false,
                               dense: true,
                               leading: Text(snapshot.data[index].Hari),
                               title: Text(
