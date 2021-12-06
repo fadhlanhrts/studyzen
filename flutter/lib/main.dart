@@ -125,28 +125,85 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Column(children: <Widget>[
+              Container(
+                child: IconButton(
+                  icon: Icon(Icons.calendar_today),
+                  iconSize: 50,
+                  tooltip: 'Pilih Jadwal',
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/getpage');
+                  },
+                ),
+              ),
+              Text('Pilih Jadwal')
+            ]),
+            Column(children: <Widget>[
+              Container(
+                child: IconButton(
+                  icon: Icon(Icons.menu_book),
+                  iconSize: 50,
+                  tooltip: 'My Course',
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/mycoursepage');
+                  },
+                ),
+              ),
+              Text('My Course')
+            ]),
+            Column(children: <Widget>[
+              Container(
+                child: IconButton(
+                  icon: Icon(Icons.recommend),
+                  iconSize: 50,
+                  tooltip: 'Recommendation',
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/recommendationpage');
+                  },
+                ),
+              ),
+              Text('Recommendation')
+            ]),
+            Column(children: <Widget>[
+              Container(
+                child: IconButton(
+                  icon: Icon(Icons.table_chart),
+                  iconSize: 50,
+                  tooltip: 'Table',
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/tablepage');
+                  },
+                ),
+              ),
+              Text('Lihat Jadwal')
+            ]),
+          ],
+        ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            title: Text('Search'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            title: Text('Profile'),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
-        iconSize: 30,
-        onTap: _onItemTapped,
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: const <BottomNavigationBarItem>[
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.search),
+      //       title: Text('Search'),
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.home),
+      //       title: Text('Home'),
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.person),
+      //       title: Text('Profile'),
+      //     ),
+      //   ],
+      //   currentIndex: _selectedIndex,
+      //   selectedItemColor: Colors.black,
+      //   iconSize: 30,
+      //   onTap: _onItemTapped,
+      // ),
     );
   }
 }

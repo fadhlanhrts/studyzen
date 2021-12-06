@@ -33,7 +33,7 @@ class User {
 
 Future<Album> createAlbum(String name) async {
   final response = await http.post(
-    Uri.parse('http://306a-118-136-163-170.ngrok.io/pilih'),
+    Uri.parse('http://0b80-118-136-163-170.ngrok.io/pilih'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -96,7 +96,7 @@ class _GetPageState extends State<GetPage> {
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
     final response =
-        await http.get(Uri.parse('http://306a-118-136-163-170.ngrok.io/'));
+        await http.get(Uri.parse('http://0b80-118-136-163-170.ngrok.io/'));
 
     var responseData = json.decode(response.body);
 

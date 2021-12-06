@@ -29,7 +29,7 @@ class TablePage extends StatelessWidget {
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
     final response = await http
-        .get(Uri.parse('http://306a-118-136-163-170.ngrok.io/mycourse'));
+        .get(Uri.parse('http://0b80-118-136-163-170.ngrok.io/mycourse'));
 
     var responseData = json.decode(response.body);
     l = responseData.length;
