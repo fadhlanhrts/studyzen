@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 Future<Album> createAlbum(String name) async {
   final response = await http.post(
-    Uri.parse('http://64a9-118-136-163-170.ngrok.io/'),
+    Uri.parse('http://80d3-103-125-43-133.ngrok.io/'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
