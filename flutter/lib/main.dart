@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             ListTile(
-              title: const Text('GET and POST'),
+              title: const Text('Pilih Jadwal'),
               onTap: () {
                 Navigator.of(context).pushNamed('/getpage');
               },

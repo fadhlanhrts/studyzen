@@ -124,7 +124,7 @@ class _GetPageState extends State<GetPage> {
       child: Scaffold(
           appBar: AppBar(
               backgroundColor: Colors.blueGrey,
-              title: Text("GET and POST"),
+              title: Text("Pilih Jadwal"),
               actions: [
                 IconButton(
                   icon: const Icon(Icons.calendar_today),
