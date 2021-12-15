@@ -19,8 +19,8 @@ class _RecommendationPageState extends State<RecommendationPage> {
 
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
-    final response = await http
-        .get(Uri.parse('http://80d3-103-125-43-133.ngrok.io/getrec'));
+    final response =
+        await http.get(Uri.parse('http://80d3-103-125-43-133.ngrok.io/getrec'));
 
     var responseData = json.decode(response.body);
 
@@ -46,8 +46,10 @@ class _RecommendationPageState extends State<RecommendationPage> {
           title: Text("Recommendation"),
           actions: [
             IconButton(
-              icon: const Icon(Icons.calendar_today),
-              onPressed: () {},
+              icon: const Icon(Icons.arrow_forward),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/getpage');
+              },
             ),
           ]),
       body: Column(

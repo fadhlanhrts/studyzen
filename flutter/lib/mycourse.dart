@@ -66,8 +66,10 @@ class _MyCoursePageState extends State<MyCoursePage> {
           title: Text("MyCourse"),
           actions: [
             IconButton(
-              icon: const Icon(Icons.calendar_today),
-              onPressed: () {},
+              icon: const Icon(Icons.arrow_forward),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/recommendationpage');
+              },
             ),
           ]),
       body: Column(

@@ -127,8 +127,10 @@ class _GetPageState extends State<GetPage> {
               title: Text("Pilih Jadwal"),
               actions: [
                 IconButton(
-                  icon: const Icon(Icons.calendar_today),
-                  onPressed: () {},
+                  icon: const Icon(Icons.arrow_forward),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/mycoursepage');
+                  },
                 ),
               ]),
           body: Container(
