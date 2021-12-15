@@ -29,7 +29,7 @@ class TablePage extends StatelessWidget {
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
     final response = await http
-        .get(Uri.parse('http://80d3-103-125-43-133.ngrok.io/mycourse'));
+        .get(Uri.parse('http://4f11-103-125-43-133.ngrok.io/mycourse'));
 
     var responseData = json.decode(response.body);
     l = responseData.length;
@@ -77,8 +77,10 @@ class TablePage extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(title: Text('Jadwal'), actions: [
             IconButton(
-              icon: const Icon(Icons.calendar_today),
-              onPressed: () {},
+              icon: const Icon(Icons.home),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/');
+              },
             ),
           ]),
           body: FutureBuilder(
