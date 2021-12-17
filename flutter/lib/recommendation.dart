@@ -20,7 +20,7 @@ class _RecommendationPageState extends State<RecommendationPage> {
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
     final response =
-        await http.get(Uri.parse('http://4f11-103-125-43-133.ngrok.io/getrec'));
+        await http.get(Uri.parse('http://aa42-103-125-43-133.ngrok.io/getrec'));
 
     var responseData = json.decode(response.body);
 
