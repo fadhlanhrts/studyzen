@@ -112,17 +112,17 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       appBar: AppBar(
         title: Text('Profile'),
-        actions: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-          ),
-          IconButton(
-            icon: const Icon(Icons.calendar_today),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/jadwalpage');
-            },
-          ),
-        ],
+        // actions: [
+        //   Padding(
+        //     padding: EdgeInsets.symmetric(horizontal: 16),
+        //   // ),
+        //   // IconButton(
+        //   //   icon: const Icon(Icons.calendar_today),
+        //   //   onPressed: () {
+        //   //     Navigator.of(context).pushNamed('/jadwalpage');
+        //   //   },
+        //   // ),
+        // ],
       ),
       body: Center(
         child: SingleChildScrollView(
