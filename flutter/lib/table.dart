@@ -29,7 +29,7 @@ class TablePage extends StatelessWidget {
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
     final response = await http
-        .get(Uri.parse('http://aa42-103-125-43-133.ngrok.io/mycourse'));
+        .get(Uri.parse('http://3cb6-118-99-110-77.ngrok.io/mycourse'));
 
     var responseData = json.decode(response.body);
     l = responseData.length;
@@ -153,14 +153,15 @@ class TablePage extends StatelessWidget {
                       Bigdata = "Teknologi Big Data";
                       Rec_Bigdata = "(Rekomendasi) Teknologi Big Data";
                       T_Bigdata = "(Tugas)Teknologi Big Data";
-                    }      
+                    }
                     if (snapshot.data[i].Name == "Dasar Sistem Digital") {
                       dsd = "Dasar Sistem Digital";
                       Rec_dsd = "(Rekomendasi) Dasar Sistem Digital";
                       T_dsd = "(Tugas) Dasar Sistem Digital";
                     }
-                    if (snapshot.data[i].Name == "Object Oriented Programming") {
-                      oop  = "Object Oriented Programming";
+                    if (snapshot.data[i].Name ==
+                        "Object Oriented Programming") {
+                      oop = "Object Oriented Programming";
                       Rec_oop = "(Rekomendasi) Object Oriented Programming";
                       T_oop = "(Tugas) Object Oriented Programming";
                     }
@@ -190,9 +191,9 @@ class TablePage extends StatelessWidget {
                       T_rpl = "(Tugas) RPL";
                     }
                     if (snapshot.data[i].Name == "Sinsis") {
-                      sinsis ="Sinsis";
-                      Rec_sinsis ="(Rekomendasi) Sinsis";
-                      T_sinsis ="(Tugas) Sinsis";
+                      sinsis = "Sinsis";
+                      Rec_sinsis = "(Rekomendasi) Sinsis";
+                      T_sinsis = "(Tugas) Sinsis";
                     }
                     if (snapshot.data[i].Name == "Jaringan Telekomunikasi") {
                       jartel = "Jaringan Telekomunikasi";

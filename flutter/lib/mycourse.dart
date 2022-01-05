@@ -34,7 +34,7 @@ class _MyCoursePageState extends State<MyCoursePage> {
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
     final response = await http
-        .get(Uri.parse('http://aa42-103-125-43-133.ngrok.io/mycourse'));
+        .get(Uri.parse('http://3cb6-118-99-110-77.ngrok.io/mycourse'));
 
     var responseData = json.decode(response.body);
 

@@ -125,58 +125,60 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Container(
-              child: IconButton(
-                icon: Image.asset(
-                  "images/pilihjadwal.png",
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Container(
+                child: IconButton(
+                  icon: Image.asset(
+                    "images/pilihjadwal.png",
+                  ),
+                  iconSize: 130,
+                  tooltip: 'Pilih Jadwal',
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/getpage');
+                  },
                 ),
-                iconSize: 130,
-                tooltip: 'Pilih Jadwal',
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/getpage');
-                },
               ),
-            ),
-            Container(
-              child: IconButton(
-                icon: Image.asset(
-                  "images/mycourse.png",
+              Container(
+                child: IconButton(
+                  icon: Image.asset(
+                    "images/mycourse.png",
+                  ),
+                  iconSize: 130,
+                  tooltip: 'My Course',
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/mycoursepage');
+                  },
                 ),
-                iconSize: 130,
-                tooltip: 'My Course',
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/mycoursepage');
-                },
               ),
-            ),
-            Container(
-              child: IconButton(
-                icon: Image.asset(
-                  "images/recommendation.png",
+              // Container(
+              //   child: IconButton(
+              //     icon: Image.asset(
+              //       "images/recommendation.png",
+              //     ),
+              //     iconSize: 130,
+              //     tooltip: 'Recommendation',
+              //     onPressed: () {
+              //       Navigator.of(context).pushNamed('/recommendationpage');
+              //     },
+              //   ),
+              // ),
+              Container(
+                child: IconButton(
+                  icon: Image.asset(
+                    "images/lihatjadwal.png",
+                  ),
+                  iconSize: 130,
+                  tooltip: 'Table',
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/tablepage');
+                  },
                 ),
-                iconSize: 130,
-                tooltip: 'Recommendation',
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/recommendationpage');
-                },
               ),
-            ),
-            Container(
-              child: IconButton(
-                icon: Image.asset(
-                  "images/lihatjadwal.png",
-                ),
-                iconSize: 130,
-                tooltip: 'Table',
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/tablepage');
-                },
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       // bottomNavigationBar: BottomNavigationBar(

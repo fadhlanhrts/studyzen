@@ -33,7 +33,7 @@ class User {
 
 Future<Album> createAlbum(String name) async {
   final response = await http.post(
-    Uri.parse('http://aa42-103-125-43-133.ngrok.io/pilih'),
+    Uri.parse('http://3cb6-118-99-110-77.ngrok.io/pilih'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -96,7 +96,7 @@ class _GetPageState extends State<GetPage> {
   Future<List<User>> getRequest() async {
     //replace your restFull API here.
     final response =
-        await http.get(Uri.parse('http://aa42-103-125-43-133.ngrok.io/'));
+        await http.get(Uri.parse('http://3cb6-118-99-110-77.ngrok.io/'));
 
     var responseData = json.decode(response.body);
 
@@ -199,7 +199,7 @@ class _GetPageState extends State<GetPage> {
                                         BorderSide(color: Colors.blueGrey)),
                                 filled: true,
                                 contentPadding: EdgeInsets.all(5),
-                                hintText: 'Enter POST'),
+                                hintText: 'Masukkan Mata Kuliah'),
                           ),
                           ElevatedButton(
                             onPressed: () {
@@ -207,7 +207,7 @@ class _GetPageState extends State<GetPage> {
                                 _futureAlbum = createAlbum(_controller.text);
                               });
                             },
-                            child: const Text('POST DATA'),
+                            child: const Text('Pilih Mata Kuliah'),
                           ),
                         ],
                       ))
