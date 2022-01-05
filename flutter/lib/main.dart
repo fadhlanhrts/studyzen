@@ -111,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       appBar: AppBar(
-        title: Text('Profile'),
+        title: Text('StudyZen'),
         // actions: [
         //   Padding(
         //     padding: EdgeInsets.symmetric(horizontal: 16),
